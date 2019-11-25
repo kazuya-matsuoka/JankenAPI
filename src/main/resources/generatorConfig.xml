@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <classPathEntry
+        location="C:\Users\kazuya\.m2\repository\org\postgresql\postgresql\42.2.5\postgresql-42.2.5.jar" />
+    <context id="context1">
+
+    <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" />
+        <!-- JDBCの設定です (1) -->
+        <jdbcConnection
+            driverClass="${mybatis.generator.jdbcDriver}"
+            connectionURL="${mybatis.generator.jdbcURL}"
+            userId="${mybatis.generator.jdbcUserId}"
+            password="${mybatis.generator.jdbcPassword}" />
+
+        <!-- 自動生成するエンティティの設定です (2) -->
+        <javaModelGenerator
+            targetPackage="${targetModelPackage}"
+            targetProject="${targetJavaProject}" />
+        <sqlMapGenerator
+            targetPackage="${targetXMLPackage}"
+            targetProject="${targetResourcesProject}" />
+        <javaClientGenerator
+            targetPackage="${targetMapperPackage}"
+            targetProject="${targetJavaProject}" type="XMLMAPPER" />
+
+        <!-- 生成対象のテーブルです（3) -->
+        <table schema="jankendb" tableName="mt_janken_comb" />
+        <table schema="jankendb" tableName="mt_janken_hand" />
+        <table schema="jankendb" tableName="mt_janken_strategy" />
+        <table schema="jankendb" tableName="mt_janken_strategy_user" />
+        <table schema="jankendb" tableName="tt_janken_score" />
+    </context>
+</generatorConfiguration>
